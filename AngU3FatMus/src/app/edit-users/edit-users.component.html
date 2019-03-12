@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 editUser">
+      <input type="text" class="form-control" [(ngModel)]="userNameInput"> <!--two way binding -> save value of user's name input as userNameInput--> 
+      <button class="btn btn-success" (click)="onAddUserName()">Add</button> <!--when user clicks add BTN -> run onAddUserName()-->
+      <button class="btn btn-danger" (click)="onRemoveUserName()">Remove</button> <!--when user clicks remove BTN -> run onRemoveUserName()-->
+    </div>
+  </div>
+</div>

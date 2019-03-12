@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <!--if user is offline do this-->
+    <div class="col-sm-12" *ngIf="!user; else online"> <!--if user is offline show this div else execute #online-->
+      <h3>You must log in to see this page!</h3>  
+    </div>
+    <!--if user is online do this-->
+    <ng-template #online> <!--else user is online show app-users-list & app-edit-users components-->
+      <div class="col-sm-6">
+        <app-users-list [userList]="userListArray"></app-users-list> <!--send userListArray to the child component-->    
+      </div>
+      <div class="col-sm-6">
+        <app-edit-users (userCreated)="onUserNameAdded($event)" (userDeleted)="onUserNameDelete($event)"></app-edit-users> <!--recieve output from edit-users & run method on (userCreated)-->
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+<!--
+****************NOTES****************
+*Dashboard Component contains two child components: app-users-list & app-edit-users.
+*************************************
+-->

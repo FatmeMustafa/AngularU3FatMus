@@ -1,0 +1,16 @@
+<div class="container usersList">
+  <div class="row">
+    <div class="col-md-12">
+      <ul>
+        <app-user-list-item *ngFor="let user of userList" [userList]="user" [changeColor]="changeColor"></app-user-list-item><!--looping through the array userListArray and passing it + the boolean values down to the child component-->
+      </ul>
+    </div>
+    <button (click)="onToggle()"type="button" class="btn btn-primary toggleBTN">Toggle</button> <!--when user clicks toggle BTN -> run onToggle()-->
+  </div>
+</div>
+
+<!--
+****************NOTES****************
+*UserList Component contains one child component: app-user-list-item.
+****************NOTES****************
+-->

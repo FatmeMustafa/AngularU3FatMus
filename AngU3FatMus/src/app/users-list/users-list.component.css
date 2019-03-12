@@ -1,0 +1,15 @@
+.usersList {
+    background-color: rgb(228, 228, 228);
+    padding: 20px;
+    border-radius: 10px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.toggleBTN {
+    margin-left: 15px;
+    width: 93%;
+}
+

@@ -1,0 +1,19 @@
+<div class="container login">
+  <!--if user is offline do this-->
+  <div class="row" *ngIf="!userStatus; else onlineDiv"> <!--if userStatus is offline show this div else execute #onlineDiv-->
+    <div class="col-md-12">
+      <p>Please login:</p>
+      <input type="text" class="form-control" [(ngModel)]="userLoginInput"> <!--two way binding -> save value of user's login input as userLoginInput-->      
+      <button class="btn btn-success" (click)="loginUser()" [disabled]="!userLoginInput" [routerLink]="['/dashboard']">Login</button> <!--when user clicks login BTN -> run loginUser(), if userLoginInput is empty disable button, go to dashboard component-->
+    </div>
+  </div>
+  <!--if user is online do this-->
+  <ng-template #onlineDiv> <!--else user is online show this div-->
+  <div class="row logoff">
+    <div class="col-md-12">
+      <p>You are already logged in</p>
+      <button (click)="logoutUser()" class="btn btn-success">Logout</button> <!--when user clicks logout BTN -> run logoutUser()-->
+    </div>
+  </div>
+  </ng-template>
+</div>
