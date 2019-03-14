@@ -7,7 +7,8 @@
     <!--if user is online do this-->
     <ng-template #online> <!--else user is online show app-users-list & app-edit-users components-->
       <div class="col-sm-6">
-        <app-users-list [userList]="userListArray"></app-users-list> <!--send userListArray to the child component-->    
+        <button (click)="getUsers()">GetUser</button>
+        <!--app-users-list [userList]="userListArray"></app-users-list--> <!--send userListArray to the child component-->    
       </div>
       <div class="col-sm-6">
         <app-edit-users (userCreated)="onUserNameAdded($event)" (userDeleted)="onUserNameDelete($event)"></app-edit-users> <!--recieve output from edit-users & run method on (userCreated)-->

@@ -2,9 +2,32 @@
   <!--if user is offline do this-->
   <div class="row" *ngIf="!userStatus; else onlineDiv"> <!--if userStatus is offline show this div else execute #onlineDiv-->
     <div class="col-md-12">
-      <p>Please login:</p>
-      <input type="text" class="form-control" [(ngModel)]="userLoginInput"> <!--two way binding -> save value of user's login input as userLoginInput-->      
-      <button class="btn btn-success" (click)="loginUser()" [disabled]="!userLoginInput" [routerLink]="['/dashboard']">Login</button> <!--when user clicks login BTN -> run loginUser(), if userLoginInput is empty disable button, go to dashboard component-->
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm"> <!--run onSubmit() when form is submitted, #userForm is a local reference to access the form-->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" 
+            id="email"
+            required
+            [(ngModel)]="model.email"
+            name="email"
+            #email="ngModel"
+          > <!--the required directive sets the required attribute of the form field, [(ngModel)]="mode.email" two way data binding to an email of model-->
+          <div class="alert alert-danger" [hidden]="email.valid || email.untouched">Incorrect email</div> <!--show error message if email is invalid, hide error message if email is valid and untouched-->
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" 
+            id="password"
+            required
+            [(ngModel)]="model.password"
+            name="password"
+            #password="ngModel"
+            minlength="10"
+          > 
+          <div class="alert alert-danger" [hidden]="password.valid || password.untouched">Incorrect password</div>
+        </div>
+        <button type="submit" (click)="onSubmit()" [disabled]="!userForm.form.valid" class="btn btn-success" [routerLink]="['/dashboard']">Login</button> <!--when user clicks login BTN -> run loginUser(), if userLoginInput is empty disable button, go to dashboard component-->  
+      </form>
     </div>
   </div>
   <!--if user is online do this-->

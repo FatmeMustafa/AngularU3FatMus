@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AdminFull } from './models/admin-full.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,21 +10,35 @@ export class AuthService {
 
   constructor() { }
 
-  checkIfLoggedIn(){
-    return localStorage.getItem('user');
+  checkIfLoggedIn(){                          
+    return localStorage.getItem('user');      //control if user is logged in by getting the value of user in localStorage
   }
 
   public login(user: string) {  
-    if (user.length >= 10 && /\d/.test(user)) {   //user name must be at least 10 characters and contain at least 1 number
-      localStorage.setItem('user', user);         //set key to user and value to user's login input (userLoginInput) in Local Storage when BTN in login.component is clicked
-    } else {
-      alert("sorry, your username must be at least 10 characters and contain at least 1 number"); //HELP ROBIN! HOW CAN I ADD THIS TEXT TO HTML WITH STRING INTERPOLATION
-    }
+    localStorage.setItem('user', user);       //set key to user and value to user's login input (userLoginInput) in Local Storage when BTN in login.component is clicked
+    this.loggedUser = user;
   }
 
   public logout() {
-    localStorage.clear();                       //clears out local storage
+    localStorage.clear();                     //clears out local storage
     this.loggedUser = undefined;
   }
-}
 
+  public admins: AdminFull[] = [{             //creating AdminFull objects based on blueprint
+    firstName: 'Fatme',
+    lastName: 'Mustafa',
+    email: 'fatme.mustafa@gmail.com',
+    password: '1111111111'
+    }, {
+    firstName: 'Mustafa',
+    lastName: 'Nazar',
+    email: 'mustafa.nazar@gmail.com',
+    password: '1111111111'
+    }, {
+    firstName: 'Ayah',
+    lastName: 'Aljawashee',
+    email: 'ayah.aljawashee@gmail.com',
+    password: '1111111111'
+  }];
+
+}

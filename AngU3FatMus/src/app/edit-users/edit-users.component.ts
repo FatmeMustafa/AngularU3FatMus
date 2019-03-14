@@ -4,7 +4,7 @@ import { strictEqual } from 'assert';
 @Component({
   selector: 'app-edit-users',
   templateUrl: './edit-users.component.html',
-  //styleUrls: ['./edit-users.component.css']
+  //styleUrls: ['./edit-users.component.css']           //to write inline CSS this array must be removed
   styles: [`
     .editUser {
       background-color: rgb(228, 228, 228);
