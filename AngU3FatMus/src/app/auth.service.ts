@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AdminFull } from './models/admin-full.model';
 
-@Injectable({
+@Injectable({     //service to check login status, log users out and in
   providedIn: 'root'
 })
 export class AuthService {

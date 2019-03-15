@@ -16,3 +16,10 @@ export class UserListItemComponent implements OnInit {
   }
 
 }
+
+/*
+****************NOTES****************
+*UserListItemComponent is the individual user in the list element. In this component the names of the users and the boolean value
+of the method changeColor is passed to it from its parent component with the keyword @Input(). 
+*************************************
+*/

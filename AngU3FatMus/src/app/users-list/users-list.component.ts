@@ -19,5 +19,11 @@ export class UsersListComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }
+
+/*
+****************NOTES****************
+*UsersListComponent consist of the ul element with all the users including the toggle button. This component recieves the userListArray
+as an input from its parent component. And it sends the boolean value of changeColor and the userName to its own childcomponent (userListItem).
+*************************************
+*/

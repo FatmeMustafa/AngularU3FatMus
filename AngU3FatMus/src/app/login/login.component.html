@@ -11,7 +11,7 @@
             [(ngModel)]="model.email"
             name="email"
             #email="ngModel"
-          > <!--the required directive sets the required attribute of the form field, [(ngModel)]="mode.email" two way data binding to an email of model-->
+          > <!--the required directive sets the required attribute of the form field, [(ngModel)]="mode.email" is two way data binding to an email of model-->
           <div class="alert alert-danger" [hidden]="email.valid || email.untouched">Incorrect email</div> <!--show error message if email is invalid, hide error message if email is valid and untouched-->
         </div>
         <div class="form-group">
@@ -23,10 +23,10 @@
             name="password"
             #password="ngModel"
             minlength="10"
-          > 
+          ><!--password follows the same structure as email and includes a required minimum length of 10 characters-->
           <div class="alert alert-danger" [hidden]="password.valid || password.untouched">Incorrect password</div>
         </div>
-        <button type="submit" (click)="onSubmit()" [disabled]="!userForm.form.valid" class="btn btn-success" [routerLink]="['/dashboard']">Login</button> <!--when user clicks login BTN -> run loginUser(), if userLoginInput is empty disable button, go to dashboard component-->  
+        <button type="submit" (click)="onSubmit()" [disabled]="!userForm.form.valid" class="btn btn-success" [routerLink]="['/dashboard']">Login</button> <!--when user clicks login BTN -> run loginUser() and go to dashboard component, if inputs are empty disable button-->  
       </form>
     </div>
   </div>
@@ -40,3 +40,9 @@
   </div>
   </ng-template>
 </div>
+
+<!--
+****************NOTES****************
+*HELP ROBIN! (line 29) - why do I get an error if I remove (click)="onSubmit()"? :( 
+*************************************
+-->

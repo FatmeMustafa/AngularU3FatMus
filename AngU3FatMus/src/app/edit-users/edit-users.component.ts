@@ -4,7 +4,7 @@ import { strictEqual } from 'assert';
 @Component({
   selector: 'app-edit-users',
   templateUrl: './edit-users.component.html',
-  //styleUrls: ['./edit-users.component.css']           //to write inline CSS this array must be removed
+  //styleUrls: ['./edit-users.component.css']           //to write inline CSS this array is erased with the styles array
   styles: [`
     .editUser {
       background-color: rgb(228, 228, 228);
@@ -17,12 +17,12 @@ import { strictEqual } from 'assert';
     button {
       margin-right: 5px;
     }
-  `]                                                    //adding inline style
+  `]                                                    //adding inline CSS
 })
 
 export class EditUsersComponent implements OnInit {
 
-  @Output() userCreated = new EventEmitter<string>();   //the event will be emitted (send) to the parent component (dashboard) 
+  @Output() userCreated = new EventEmitter<string>();   //the event will be emitted (send) to the parent component (DashboardComponent) 
   @Output() userDeleted = new EventEmitter<string>();  
 
   userNameInput = '';       
@@ -39,4 +39,11 @@ export class EditUsersComponent implements OnInit {
   onRemoveUserName() {
     this.userDeleted.emit();                            //emits the event                       
   }
-}                         
+}
+
+/*
+****************NOTES****************
+*EditUsersComponent consist of a form where users can add a username (userNameInput) and remove the last user element from 
+the userListArray in the parent component. All the data is emitted or send through eventemitters.s 
+*************************************
+*/
