@@ -9,26 +9,21 @@ import { UserService } from '../user.service';
 })
 export class DashboardComponent implements OnInit { 
   
-  userListArray: string[] = ["Ronald Steele", "Nigel Walters", "Jase Sosa", "Casey Vazquez"]; //array with existing users 
   user: string;
+  userListArray = [];
   
   constructor(private authService: AuthService, private userService: UserService) {   //injecting AuthService into DashboardComponent 
   } 
 
-
-  getUsers() {
+  ngOnInit() {
+    this.checkUser();                                //run function
+  
     this.userService.getUsers()
       .subscribe(
-        (response) => console.log('response', response),
-        (error) => console.log('error', error),
-        ()=> console.log('completed')
+      (response: any[]) => {console.log('response', response); this.userListArray = response; },
+      (error) => { console.log('error', error) },
+      ()=> console.log('completed')
     );
-  }
-
-
-
-  ngOnInit() {
-    this.checkUser();                               //run function
   }
 
   checkUser():void{                                 //check if user is logged in

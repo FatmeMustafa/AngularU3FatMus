@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { EditUsersComponent } from './edit-users/edit-users.component';
-import { UserListItemComponent } from './users-list/user-list-item/user-list-item.component';
+import { UserListItemComponent } from './user-list-item/user-list-item.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginComponent } from './login/login.component';

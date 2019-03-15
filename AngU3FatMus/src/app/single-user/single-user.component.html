@@ -1,8 +1,16 @@
 
-<div class="container singleUser">
+<div class="container singleUser" *ngIf="user">
   <div class="row">
-    <div class="col-md-12">
-      <p>{{userId}}</p>
+    <div class="col-md-12 allP">
+      <p>{{user.username}}</p>
+      <p>{{user.name}}</p>
+      <p>{{user.address.street}}</p>
+
+      <p>{{ user.username }}</p>
+      <p>{{ user.name }}</p>
+      <p>{{ user.address.street }}</p>
+      <p>{{ user.address.city }}</p>
+      <p>{{ user.address.zipcode }}</p>
     </div>
   </div>
 </div>

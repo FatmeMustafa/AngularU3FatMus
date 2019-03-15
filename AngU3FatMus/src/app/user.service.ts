@@ -8,15 +8,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  urls:any = {
-    users: 'https://jsonplaceholder.typicode.com/users',
-  }
+  usersUrl: string = 'https://jsonplaceholder.typicode.com/users'
 
   constructor(private http: HttpClient) {
-
   }
 
   public getUsers(): Observable<any>{
-    return this.http.get(this.urls.users)
+    return this.http.get(this.usersUrl)
+  }
+
+  public getSpecificUser(id: any): Observable<any>{
+    return this.http.get(this.usersUrl + "/" + id) //was without /
   }
 }
